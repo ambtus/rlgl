@@ -1,5 +1,8 @@
 == README
 
+You will need to create unicorn.rb and secrets.yml files in config and run 
+RAILS_ENV=production rake db:schema:load
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
