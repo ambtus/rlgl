@@ -1,3 +1,4 @@
+# coding: utf-8
 class User < ActiveRecord::Base
   DATEREGEXP = /\A(\d+(?:\.\d+)?)(?:[, ]+(\d+(?:\.\d+)?)){0,8}\z/m
 
