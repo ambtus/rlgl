@@ -1,0 +1,9 @@
+!!!
+%html
+  %head
+    %title="Red Light / Green Light: " + yield(:title)
+    %meta{:content => "text/html; charset=utf-8"}
+    %meta{:name => "viewport", :content=>"width=device-width"}
+    =stylesheet_link_tag 'application'
+  %body
+    =yield

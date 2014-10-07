@@ -1,0 +1,18 @@
+%p
+  In order to create a new user, you need to enter a name and nine weights, from the oldest to the newest.
+%p
+  If you don’t have nine weights, you can enter fewer, but you won’t get a signal until you have nine.
+%ul
+  -@user.errors.full_messages.each do |msg|
+    %li.errors= msg
+%p
+  =form_for @user do |f|
+    =f.label :name
+    =f.text_field :name
+    %br
+    =f.label :weights
+    (oldest)
+    =f.text_field :weights, :size => 50
+    (today)
+    %br
+    = f.submit "Create"

@@ -1,0 +1,18 @@
+%p
+  On this page, you can edit your saved weights or even start over with just today’s weight.
+%p
+  Note that if you start over with just today’s weight, you will have to enter weights for eight more days before you get a signal.
+%ul
+  -@user.errors.full_messages.each do |msg|
+    %li.errors= msg
+%p
+  =form_for @user do |f|
+    =f.label :weights
+    (oldest)
+    =f.text_field :weights, :size => 50
+    (today)
+    %br
+    = f.submit "Replace"
+    %br
+%p
+  =link_to "return", user_path

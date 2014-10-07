@@ -1,0 +1,25 @@
+-if flash[:error]
+  %p.errors=flash[:error]
+-if flash[:notice]
+  %p.notices=flash[:notice]
+%p
+  Hi,
+  =@user.name
+-if @user.ready? && @user.today?
+  %p{:style => "color:#{@user.signal}"}
+    =@user.signal
+    light!
+    ="(average: #{@user.current_sma.to_one}, delta: #{@user.delta.to_one})"
+-elsif ! @user.today?
+  %p
+    The last weight you entered was
+    =@user.days_ago
+    =@user.message
+    =form_tag user_path, method: :patch do
+      =text_field_tag :new_weights, '', :size => 50
+      (today)
+      %br
+      =submit_tag "Update Weights"
+-else
+  %p Sorry, You don’t have enough weights yet to give a signal.
+=link_to "edit all weights", edit_user_path
